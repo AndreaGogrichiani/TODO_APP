@@ -32,6 +32,13 @@
     .todo p:first-child {
       font-weight: bold;
     }
+    .button-34 {
+      background-color: blue;
+        color: white;
+        padding: 16px;
+        text-decoration: none;
+        border-radius: 8px;
+    }
   </style>
 </head>
 <body>
@@ -39,11 +46,12 @@
 
     <div class="todo-container">
       {% for todo in todos %}
-        <div class="todo">
+        <div class="todo" style="width:450px; display:flex; flex-direction: column; gap:15px">
           <p>Title: {{ todo.title }}</p>
           <p>Description: {{ todo.description }}</p>
         </div>
       {% endfor %}
+      <a href="{% url 'add_todo' %}" class="button-34">Go to Add Todo Page</a>
     </div>
 </body>
 </html>
