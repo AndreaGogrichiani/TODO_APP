@@ -1,80 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo App</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        form {
-            display: flex;
-            margin-bottom: 20px;
-        }
-
-        input[type="text"] {
-            flex: 1;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            outline: none;
-        }
-
-        button[type="submit"] {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button[type="submit"]:hover {
-            background-color: #0056b3;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-            font-size: 18px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Todo's</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+      text-align: center;
+    }
+    .todo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .todo {
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .todo p {
+      margin: 0;
+    }
+    .todo p:first-child {
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Todo App</h1>
-        <form id="todo-form">
-            <input type="text" id="todo-input" placeholder="Add new todo">
-            <button type="submit">Add</button>
-        </form>
-        <ul id="todo-list"></ul>
+    <h1>Todo's</h1>
+
+    <div class="todo-container">
+      {% for todo in todos %}
+        <div class="todo">
+          <p>Title: {{ todo.title }}</p>
+          <p>Description: {{ todo.description }}</p>
+        </div>
+      {% endfor %}
     </div>
 </body>
 </html>
