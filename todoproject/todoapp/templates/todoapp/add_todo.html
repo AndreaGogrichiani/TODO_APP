@@ -2,9 +2,84 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add_TODO</title>
 </head>
 <body>
+    <style>
+        .btn {
+            align-items: center;
+            appearance: none;
+            background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+            border: 0;
+            border-radius: 6px;
+            box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            display: inline-flex;
+            font-family: "JetBrains Mono",monospace;
+            height: 48px;
+            justify-content: center;
+            line-height: 1;
+            list-style: none;
+            overflow: hidden;
+            padding-left: 16px;
+            padding-right: 16px;
+            position: relative;
+            text-align: left;
+            text-decoration: none;
+            transition: box-shadow .15s,transform .15s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            will-change: box-shadow,transform;
+            font-size: 18px;
+            width: 100%;
+            margin: 8px 0; /* Margin between the submit button and other fields */
+            border: none; /* No border for the submit button */
+        }
+
+        .btn:hover {
+            box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+            transform: translateY(3px);
+        }
+
+        form {
+            background-color: #f2f2f2; /* Light grey background */
+            padding: 20px; /* Padding inside the form */
+            border-radius: 5px; /* Rounded corners for the form */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow around the form */
+            max-width: 500px; /* Maximum width of the form */
+            margin: auto; /* Center the form on the page */
+        }
+
+        textarea {
+            width: 100%; /* Full width */
+            padding: 12px; /* Padding inside the input fields */
+            margin: 8px 0; /* Margin between each field */
+            display: inline-block; /* Allows the width to be set */
+            border: 1px solid #ccc; /* Light grey border */
+            border-radius: 4px; /* Rounded corners on inputs */
+            box-sizing: border-box; /* Box sizing to include padding in width */
+        }
+
+
+
+    </style>
+    {% if submitted %}
+        Your event was submitted
+
+    {% else %}
+        <form action="" method="POST" class="form">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <input type="submit" value="Submit" class="btn">
+
+        </form>
+    {% endif %}
 
 </body>
 </html>
